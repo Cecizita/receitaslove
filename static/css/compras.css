@@ -1,0 +1,160 @@
+/* ==========================================================================
+   Configurações Gerais e Reset
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #fdf8f8; /* Fundo suave levemente rosado */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Topo / Cabeçalho
+   ========================================================================== */
+.topo {
+    background-color: #800020; /* Vermelho Bordô */
+    color: #ffffff;
+    text-align: center;
+    padding: 45px 20px;
+    font-family: 'Georgia', serif;
+    border-bottom: 5px solid #d4af37; /* Detalhe em dourado */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.topo h1 {
+    font-size: 2.6rem;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.topo h2 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+   Área de Conteúdo Principal
+   ========================================================================== */
+.conteudo {
+    max-width: 650px; /* Deixa o formulário centralizado e com tamanho agradável */
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid #800020;
+}
+
+/* Título interno da página */
+.conteudo h1 {
+    font-size: 1.4rem;
+    color: #800020;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   Formulário de Encomendas
+   ========================================================================== */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Customização dos itens de Checkbox + Label */
+form br {
+    display: none; /* Remove os <br> antigos para o CSS controlar o espaçamento */
+}
+
+/* Criando uma linha estilizada para cada opção de comida */
+input[type="checkbox"] {
+    position: relative;
+    cursor: pointer;
+    accent-color: #800020; /* Faz a caixinha de seleção ficar bordô ao marcar */
+    width: 18px;
+    height: 18px;
+}
+
+label {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #444;
+    cursor: pointer;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    background-color: #fafafa;
+    transition: all 0.2s ease;
+
+    /* Organiza o checkbox e o texto lado a lado dentro do cardzinho */
+    width: 100%;
+}
+
+/* Efeito visual quando o usuário passa o mouse por cima de uma opção */
+label:hover {
+    background-color: #fff1f3;
+    border-color: #800020;
+    color: #800020;
+}
+
+/* Coloca um pequeno espaçamento entre o checkbox e o texto da comida */
+input[type="checkbox"] + label {
+    display: flex;
+    gap: 12px;
+}
+
+/* ==========================================================================
+   Botão de Finalizar
+   ========================================================================== */
+button[type="submit"] {
+    background-color: #800020;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(128, 0, 32, 0.2);
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+/* Efeito ao passar o mouse no botão */
+button[type="submit"]:hover {
+    background-color: #5c0016; /* Bordô mais escuro */
+    box-shadow: 0 6px 12px rgba(128, 0, 32, 0.3);
+}
+
+/* Efeito de clique */
+button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* ==========================================================================
+   Responsividade (Telas pequenas)
+   ========================================================================== */
+@media (max-width: 700px) {
+    .conteudo {
+        margin: 20px 15px;
+        padding: 20px;
+    }
+
+    .topo h1 {
+        font-size: 2rem;
+    }
+}

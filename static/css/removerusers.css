@@ -1,0 +1,108 @@
+/* ==========================================================================
+   Configurações Gerais e Reset
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #fdf8f8; /* Fundo suave levemente rosado */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Topo / Cabeçalho
+   ========================================================================== */
+.topo {
+    background-color: #800020; /* Vermelho Bordô */
+    color: #ffffff;
+    text-align: center;
+    padding: 35px 20px;
+    font-family: 'Georgia', serif;
+    border-bottom: 5px solid #d4af37; /* Detalhe em dourado */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.topo h1 {
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.topo p {
+    font-size: 1rem;
+    opacity: 0.9;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   Container de Conteúdo (Lista de Usuários)
+   ========================================================================== */
+.Conteudo {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid #800020; /* Linha de destaque no topo do card */
+}
+
+/* Linhas com os dados dos usuários cadastrados */
+.Conteudo p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fafafa;
+    padding: 14px 20px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border-left: 4px solid #cc2424; /* Bordinha vermelha indicando ação de remoção */
+    font-size: 1.05rem;
+    color: #444;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+/* Último item não precisa de margem abaixo */
+.Conteudo p:last-child {
+    margin-bottom: 0;
+}
+
+/* Efeito visual ao passar o mouse por cima do usuário */
+.Conteudo p:hover {
+    background-color: #fff1f3; /* Fundo rosado leve */
+    color: #cc2424; /* Texto ganha tom de alerta */
+    transform: translateX(4px); /* Leve deslocamento para a direita */
+}
+
+/* Mensagem caso não exista nenhum usuário na lista */
+.Conteudo .sem-usuarios {
+    text-align: center;
+    color: #777;
+    font-style: italic;
+    padding: 20px 0;
+}
+
+/* ==========================================================================
+   Responsividade (Para celulares)
+   ========================================================================== */
+@media (max-width: 740px) {
+    .Conteudo {
+        margin: 20px 15px;
+        padding: 15px;
+    }
+
+    .topo h1 {
+        font-size: 1.6rem;
+    }
+
+    .Conteudo p {
+        font-size: 0.95rem;
+        padding: 12px 15px;
+    }
+}

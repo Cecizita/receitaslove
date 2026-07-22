@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>PAINEL DO ADMINISTRADOR</title>
+    <link rel="stylesheet" href="../static/css/adminpage.css">
+</head>
+<body>
+    <div class="topo">
+        <h1>PAINEL DO ADMINISTRADOR</h1>
+        <p>Gerenciamento de Usuários e Cardápio | Receitas Love</p>
+    </div>
+    <div class="menu">
+
+        <div class="botao">
+            <a href="/">Home</a>
+        </div>
+
+        <div class="botao">
+            <a href="/usuario/logout">Logout</a>
+        </div>
+
+
+        <div class="botao">
+            <a href="/admin/listarremoverusers">Remover Usuarios</a>
+        </div>
+
+    </div>
+
+    <div class="conteudo">
+
+        <div class="usuarios">
+        <h2>Clientes Cadastrados</h2>
+        {%if usuarios%}
+            {% for usuario in usuarios %}
+                <p>Nome do Usuário: {{usuario.nome}} | Login do Usuário: {{usuario.login}}</p>
+            {% endfor %}
+        {% endif %}
+
+        </div>
+
+        <br><br>
+
+        <div class="comidas">
+
+            <h2>Comidas Cadastradas</h2>
+            {% for comida in comidas %}
+                <p>{{comida}}</p>
+            {% endfor %}
+
+        </div>
+
+        <br><br>
+
+        <div class="cadastro-comida">
+
+            <h2>Adicionar Nova Comida</h2>
+
+            <form action="/admin/cadastrarcomida" method="post">
+                <label>Nome da comida:</label>
+                <br>
+                <input type="text" name="nome">
+                <br><br>
+                <button type="submit">
+                    Adicionar
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
