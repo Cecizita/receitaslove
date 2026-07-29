@@ -1,5 +1,5 @@
 from flask import *
-from config import comidas
+from config import *
 from dao.usuario_dao import UsuarioDAO
 
 admin = Blueprint('bp_admin', __name__)
@@ -8,7 +8,8 @@ admin = Blueprint('bp_admin', __name__)
 @admin.route('/')
 def index():
     return render_template(
-        'adminpage.html',comidas=comidas)
+        'adminpage.html',comidas=comidas, bebidas=bebidas)
+
 
 
 @admin.route('/cadastrarcomida', methods=['POST'])
@@ -16,6 +17,13 @@ def cadastrar_comida():
     nome = request.form.get('nome')
     comidas.append(nome)
     return render_template('adminpage.html',comidas=comidas)
+
+
+@admin.route('/cadastrarbebida', methods=['POST'])
+def cadastrar_bebida():
+    nome = request.form.get('nome')
+    bebidas.append(nome)
+    return render_template('adminpage.html',bebidas=bebidas)
 
 
 

@@ -52,12 +52,37 @@
 
         <br><br>
 
+        <div class="bebidas">
+
+            <h2>Bebidas Cadastradas</h2>
+            {% for bebida in bebidas %}
+                <p>{{bebida}}</p>
+            {% endfor %}
+
+        </div>
+
+        <br><br>
+
         <div class="cadastro-comida">
 
             <h2>Adicionar Nova Comida</h2>
 
             <form action="/admin/cadastrarcomida" method="post">
                 <label>Nome da comida:</label>
+                <br>
+                <input type="text" name="nome">
+                <br><br>
+                <button type="submit">
+                    Adicionar
+                </button>
+            </form>
+        </div>
+        <div class="cadastro-bebida">
+
+            <h2>Adicionar Nova Bebida</h2>
+
+            <form action="/admin/cadastrarbebida" method="post">
+                <label>Nome da Bebida:</label>
                 <br>
                 <input type="text" name="nome">
                 <br><br>

@@ -3,6 +3,9 @@ from config import db
 from blueprints.bp_admin import admin
 from blueprints.bp_usuario import usuario
 from config import comidas
+from config import bebidas
+
+
 app = Flask(__name__)
 app.secret_key = 'KJ#H4k3jh412dasd'
 
@@ -36,6 +39,18 @@ def comprar_comida():
         print(nome_comida)
 
         return render_template('paginaprincipal.html')
+
+
+@app.route('/usuario/encomendarbebida' , methods=['POST', 'GET'])
+def comprar_bebida():
+    if request.method == 'GET':
+        return render_template('comprasbebidas.html', bebidas=bebidas)
+    else:
+        nome_bebida = request.form.getlist('bebida')
+        print(nome_bebida)
+
+        return render_template('paginaprincipal.html')
+
 
 @app.route('/usuario/logout')
 def logout():

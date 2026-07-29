@@ -1,6 +1,4 @@
-/* ==========================================================================
-   Configurações Gerais e Reset
-   ========================================================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -9,16 +7,14 @@
 }
 
 body {
-    background-color: #fdf8f8; /* Fundo suave levemente rosado */
+    background-color: #fdf8f8;
     color: #333;
     line-height: 1.6;
 }
 
-/* ==========================================================================
-   Topo / Cabeçalho
-   ========================================================================== */
+
 .topo {
-    background-color: #800020; /* Vermelho Bordô */
+    background-color: #800020;
     color: #ffffff;
     text-align: center;
     padding: 40px 20px 25px 20px;
@@ -36,16 +32,14 @@ body {
     opacity: 0.9;
 }
 
-/* ==========================================================================
-   Menu de Navegação Horizontal
-   ========================================================================== */
+
 .menu {
     display: flex;
     justify-content: center;
-    background-color: #5c0016; /* Bordô mais escuro para o menu */
+    background-color: #5c0016;
     padding: 10px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: sticky; /* Mantém o menu fixo no topo ao rolar a página */
+    position: sticky;
     top: 0;
     z-index: 1000;
 }
@@ -65,98 +59,87 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Efeito ao passar o mouse nos botões do menu */
+
 .menu .botao a:hover {
-    background-color: #d4af37; /* Destaque em dourado */
-    color: #5c0016; /* Texto muda para o bordô escuro */
+    background-color: #d4af37;
+    color: #5c0016;
 }
 
-/* Destaque especial para o botão de LOGOUT */
 .menu .botao a[href*="logout"] {
     background-color: rgba(255, 255, 255, 0.15);
 }
 .menu .botao a[href*="logout"]:hover {
-    background-color: #cc2424; /* Vermelho vivo para o logout */
+    background-color: #cc2424;
     color: white;
 }
 
-/* ==========================================================================
-   Mural de Conteúdo (Grid de 3 Colunas)
-   ========================================================================== */
 .conteudo {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas de tamanhos iguais */
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-/* Blocos de cada coluna */
+
 .col1, .col2, .col3 {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza as imagens e links */
+    align-items: center;
 }
 
-/* Customização das Imagens */
 .conteudo img {
-    width: 100%; /* Faz a imagem ocupar o espaço disponível do card */
-    max-width: 400px; /* Mantém um limite bonito */
+    width: 100%;
+    max-width: 400px;
     height: 230px;
-    object-fit: cover; /* Recorta a imagem proporcionalmente sem distorcer */
+    object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease;
 }
 
-/* Efeito de zoom leve ao passar o mouse na imagem */
 .conteudo img:hover {
     transform: scale(1.03);
 }
 
-/* Estilização dos Links de Receita (Transformados em botões) */
 .conteudo a {
     display: block;
     width: 100%;
     max-width: 400px;
     text-align: center;
     background-color: #ffffff;
-    color: #800020; /* Texto em Bordô */
+    color: #800020;
     text-decoration: none;
     font-weight: bold;
     font-size: 0.95rem;
     padding: 12px;
     margin-top: 12px;
-    margin-bottom: 25px; /* Espaço para a próxima imagem debaixo */
+    margin-bottom: 25px;
     border: 2px solid #800020;
     border-radius: 6px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
 }
 
-/* Efeito ao passar o mouse nos links de receitas */
+
 .conteudo a:hover {
     background-color: #800020;
-    color: #ffffff; /* Inverte as cores */
+    color: #ffffff;
     box-shadow: 0 4px 8px rgba(128, 0, 32, 0.3);
 }
-
-/* ==========================================================================
-   Responsividade (Para celulares e tablets)
-   ========================================================================== */
 @media (max-width: 950px) {
     .conteudo {
-        grid-template-columns: 1fr; /* Vira uma única coluna em telas menores */
+        grid-template-columns: 1fr;
         gap: 20px;
     }
 
     .menu {
-        flex-wrap: wrap; /* Permite que os botões do menu quebrem linha se faltar espaço */
+        flex-wrap: wrap;
         gap: 10px;
         padding: 15px;
     }
-    
+
     .menu .botao {
         margin: 5px;
     }

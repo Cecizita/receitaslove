@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>ENCOMENDAR BEBIDAS</title>
+    <link rel="stylesheet" href="../static/css/bebidas.css">
+</head>
+<body>
+    <div class="topo">
+    <h1> ENCOMENDAS NA RECEITAS LOVE!</h1>
+    <h2> Onde vc pode levar um pedacinho do nosos amor pra sua casa!</h2>
+    </div>
+    <div class="conteudo">
+        <br>
+        <h1> SELECIONE OQUE DESEJA ENCOMENDAR</h1>
+        <br><br>
+        <form action="/usuario/encomendarbebida" method="post">
+            {% for b in bebidas %}
+                <input type="checkbox" name="bebida" value="{{b.nome}}">
+                <label>{{b}}</label><br>
+            {% endfor %}
+                <br>
+
+                <button type="submit">FINALIZAR ENCOMENDA</button>
+        </form>
+    </div>
+</body>
+</html>
