@@ -11,6 +11,11 @@ def index():
     return render_template('index.html')
 
 
+@usuario.route('/paginaprincipal')
+def paginaprincipal():
+    return render_template('paginaprincipal.html')
+
+
 @usuario.route('/cadastrar' , methods=['POST'])
 def fazercadastro():
     nome = request.form.get('nome')
@@ -30,11 +35,11 @@ def login():
     if login_user == 'admin' and senha_user == '123':
         clientes = UsuarioDAO.listar_todos()
         return render_template('adminpage.html', usuarios=clientes, comidas=comidas, bebidas=bebidas)
+
     u = UsuarioDAO.buscar_por_login(login_user)
     if u:
         if senha_user == u.senha:
             session['usuario'] = login_user
-
             return render_template('paginaprincipal.html')
     else:
         return render_template('index.html')

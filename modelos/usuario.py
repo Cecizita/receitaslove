@@ -12,3 +12,6 @@ class Usuario(db.Model):
         self.nome = nome
         self.login = login
         self.senha = senha
+
+    def __repr__(self):
+        return 'login:' + self.login

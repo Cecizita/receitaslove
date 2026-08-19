@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: #fdf8f8; /* Fundo suave levemente rosado */
+    background-color: #fdf8f8;
     color: #333;
     line-height: 1.6;
 }
@@ -18,18 +18,19 @@ body {
    Topo / Cabeçalho
    ========================================================================== */
 .topo {
-    background-color: #800020; /* Vermelho Bordô */
+    background-color: #800020;
     color: #ffffff;
     text-align: center;
-    padding: 45px 20px;
+    padding: 35px 20px 25px 20px;
     font-family: 'Georgia', serif;
-    border-bottom: 5px solid #d4af37; /* Detalhe em dourado */
+    border-bottom: 5px solid #d4af37;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 .topo h1 {
     font-size: 2.6rem;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     letter-spacing: 1px;
 }
 
@@ -38,13 +39,40 @@ body {
     font-weight: 300;
     font-style: italic;
     opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+/* --- Botão Exit no Cabeçalho --- */
+.topo .botao {
+    display: inline-block;
+}
+
+.topo .botao a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 8px 18px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.topo .botao a:hover {
+    background-color: #d4af37;
+    color: #5c0016;
+    border-color: #d4af37;
+    transform: translateY(-2px);
 }
 
 /* ==========================================================================
    Área de Conteúdo Principal
    ========================================================================== */
 .conteudo {
-    max-width: 650px; /* Deixa o formulário centralizado e com tamanho agradável */
+    max-width: 650px;
     margin: 40px auto;
     padding: 30px;
     background-color: #ffffff;
@@ -53,7 +81,12 @@ body {
     border-top: 4px solid #800020;
 }
 
-/* Título interno da página */
+/* Remove quebras de linha manuais do HTML */
+.conteudo > br,
+.conteudo form br {
+    display: none;
+}
+
 .conteudo h1 {
     font-size: 1.4rem;
     color: #800020;
@@ -71,16 +104,10 @@ form {
     flex-direction: column;
 }
 
-/* Customização dos itens de Checkbox + Label */
-form br {
-    display: none; /* Remove os <br> antigos para o CSS controlar o espaçamento */
-}
-
-/* Criando uma linha estilizada para cada opção de comida */
 input[type="checkbox"] {
     position: relative;
     cursor: pointer;
-    accent-color: #800020; /* Faz a caixinha de seleção ficar bordô ao marcar */
+    accent-color: #800020;
     width: 18px;
     height: 18px;
 }
@@ -98,19 +125,15 @@ label {
     border-radius: 6px;
     background-color: #fafafa;
     transition: all 0.2s ease;
-
-    /* Organiza o checkbox e o texto lado a lado dentro do cardzinho */
     width: 100%;
 }
 
-/* Efeito visual quando o usuário passa o mouse por cima de uma opção */
 label:hover {
     background-color: #fff1f3;
     border-color: #800020;
     color: #800020;
 }
 
-/* Coloca um pequeno espaçamento entre o checkbox e o texto da comida */
 input[type="checkbox"] + label {
     display: flex;
     gap: 12px;
@@ -134,13 +157,11 @@ button[type="submit"] {
     transition: background-color 0.3s ease, transform 0.1s ease;
 }
 
-/* Efeito ao passar o mouse no botão */
 button[type="submit"]:hover {
-    background-color: #5c0016; /* Bordô mais escuro */
+    background-color: #5c0016;
     box-shadow: 0 6px 12px rgba(128, 0, 32, 0.3);
 }
 
-/* Efeito de clique */
 button[type="submit"]:active {
     transform: scale(0.98);
 }

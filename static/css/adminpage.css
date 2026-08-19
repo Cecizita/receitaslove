@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Configurações Gerais e Reset
+   1. Reset e Configurações Gerais
    ========================================================================== */
 * {
     margin: 0;
@@ -9,69 +9,100 @@
 }
 
 body {
-    background-color: #fdf8f8;
-    color: #333;
+    background-color: #fdf8f8 !important; /* Força o fundo bege claro correto */
+    color: #333333;
     line-height: 1.6;
 }
 
 /* ==========================================================================
-   Topo / Cabeçalho
+   2. Cabeçalho / Topo
    ========================================================================== */
 .topo {
     background-color: #800020;
     color: #ffffff;
     text-align: center;
-    padding: 35px 20px;
+    padding: 30px 20px;
     font-family: 'Georgia', serif;
     border-bottom: 5px solid #d4af37;
 }
 
+.modal-overlay {
+display: none; /* O JS vai mudar isso para 'flex' ou 'block' */
+position: fixed;
+top: 0; left: 0;
+width: 100%; height: 100%;
+background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-conteudo {
+background-color: #fff;
+margin: 10% auto;
+padding: 20px;
+width: 300px;
+border-radius: 8px;
+position: relative;
+}
+.fechar {
+position: absolute;
+top: 10px; right: 15px;
+font-size: 20px;
+cursor: pointer;
+    display:flex;
+}
+
 .topo h1 {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     margin-bottom: 5px;
     letter-spacing: 1px;
 }
 
 .topo p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     opacity: 0.9;
     font-style: italic;
 }
 
 /* ==========================================================================
-   Menu de Navegação
+   3. Barra de Menu Superior
    ========================================================================== */
 .menu {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     background-color: #5c0016;
-    padding: 12px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-.menu .botao a {
+/* Botões do Menu */
+.menu .botao a,
+.menu .botao button,
+.menu button {
+    display: inline-block;
     color: #ffffff;
-    text-decoration: none;
+    background-color: transparent;
+    border: none;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     padding: 8px 16px;
     border-radius: 4px;
     text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-    display: inline-block;
 }
 
+/* Hover padrão nos links */
 .menu .botao a:hover {
     background-color: #d4af37;
     color: #5c0016;
 }
 
-/* Tratamento visual para o Logout */
+/* Estilo do botão "Logout" */
 .menu .botao a[href*="logout"] {
     background-color: rgba(255, 255, 255, 0.15);
 }
@@ -81,28 +112,112 @@ body {
     color: #ffffff;
 }
 
+/* Estilo do botão "Remover Users" */
+.menu button,
+.menu .botao button {
+    background-color: #d4af37;
+    color: #5c0016;
+}
+
+.menu button:hover,
+.menu .botao button:hover {
+    background-color: #ffffff;
+    color: #800020;
+}
+
 /* ==========================================================================
-   Container de Conteúdo
+   4. Estilização do Modal (Overlay e Conteúdo)
+   ========================================================================== */
+.modal-overlay {
+    display: none; /* Controlado via JS */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.65) !important; /* Sombra escura semi-transparente */
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-conteudo {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    border-top: 5px solid #800020;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.modal-conteudo h2 {
+    color: #800020;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #fff1f3;
+    padding-bottom: 5px;
+}
+
+.modal-conteudo .fechar {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #800020;
+    cursor: pointer;
+}
+
+.modal-conteudo .fechar:hover {
+    color: #cc2424;
+}
+
+.item-remover {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.btn-excluir {
+    background-color: #cc2424;
+    color: #ffffff !important;
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.btn-excluir:hover {
+    background-color: #990000;
+}
+
+/* ==========================================================================
+   5. Container de Conteúdo e Grid de Cards
    ========================================================================== */
 .conteudo {
     max-width: 1000px;
-    margin: 40px auto;
+    margin: 30px auto;
     padding: 0 20px;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 20px;
 }
 
-/* Esconde as tags <br> manuais para usar os espaçamentos do CSS */
+/* Oculta quebras manuais <br> */
 .conteudo br,
-.cadastro-comida form br,
-.cadastro-bebida form br {
+.modal-conteudo br,
+form br {
     display: none;
 }
 
-/* ==========================================================================
-   Blocos de Seções (Usuários, Comidas, Bebidas e Formulários)
-   ========================================================================== */
+/* Seções / Cards */
 .usuarios,
 .comidas,
 .bebidas,
@@ -110,21 +225,20 @@ body {
 .cadastro-bebida {
     background-color: #ffffff;
     border-radius: 8px;
-    padding: 25px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    padding: 22px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     border-top: 4px solid #800020;
 }
 
-/* Títulos das seções */
 h2 {
     color: #800020;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     margin-bottom: 15px;
     border-bottom: 2px solid #fff1f3;
-    padding-bottom: 8px;
+    padding-bottom: 6px;
 }
 
-/* Linhas de registros (Clientes, Comidas e Bebidas) */
+/* Item das listas */
 .usuarios p,
 .comidas p,
 .bebidas p {
@@ -133,54 +247,43 @@ h2 {
     margin-bottom: 8px;
     border-radius: 5px;
     border-left: 3px solid #d4af37;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: #444;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.usuarios p:hover,
-.comidas p:hover,
-.bebidas p:hover {
-    background-color: #fff1f3;
-    color: #800020;
 }
 
 /* ==========================================================================
-   Formulários de Cadastro (Comidas e Bebidas)
+   6. Formulários de Cadastro
    ========================================================================== */
 .cadastro-comida form,
 .cadastro-bebida form {
     display: flex;
     flex-direction: column;
+    gap: 8px;
 }
 
 .cadastro-comida label,
 .cadastro-bebida label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     color: #555;
-    margin-bottom: 6px;
 }
 
 .cadastro-comida input[type="text"],
 .cadastro-bebida input[type="text"] {
     width: 100%;
-    padding: 10px 12px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 0.95rem;
-    transition: border-color 0.3s, background-color 0.3s;
-    margin-bottom: 15px;
+    font-size: 0.9rem;
 }
 
 .cadastro-comida input[type="text"]:focus,
 .cadastro-bebida input[type="text"]:focus {
     outline: none;
     border-color: #800020;
-    background-color: #fff9f9;
+    background-color: #fffdfd;
 }
 
-/* Botões de Ação */
 .cadastro-comida button[type="submit"],
 .cadastro-bebida button[type="submit"] {
     background-color: #800020;
@@ -188,53 +291,29 @@ h2 {
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
-    font-size: 0.95rem;
     font-weight: bold;
+    font-size: 0.85rem;
     cursor: pointer;
     align-self: flex-start;
-    transition: background-color 0.2s, transform 0.1s;
-    box-shadow: 0 4px 6px rgba(128, 0, 32, 0.15);
+    margin-top: 5px;
+    transition: background-color 0.2s;
 }
 
 .cadastro-comida button[type="submit"]:hover,
 .cadastro-bebida button[type="submit"]:hover {
     background-color: #5c0016;
-    box-shadow: 0 6px 12px rgba(128, 0, 32, 0.25);
-}
-
-.cadastro-comida button[type="submit"]:active,
-.cadastro-bebida button[type="submit"]:active {
-    transform: scale(0.98);
 }
 
 /* ==========================================================================
-   Responsividade e Layout em Colunas para Telas Grandes
+   7. Responsividade
    ========================================================================== */
 @media (min-width: 768px) {
-    /* Agrupa visualmente as seções de listagem e cadastro em 2 colunas lado a lado */
     .conteudo {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
 
-    /* O bloco de usuários ocupa as duas colunas inteiras no topo */
     .usuarios {
         grid-column: span 2;
-    }
-}
-
-@media (max-width: 767px) {
-    .menu {
-        flex-wrap: wrap;
-    }
-
-    .topo h1 {
-        font-size: 1.8rem;
-    }
-
-    .cadastro-comida button[type="submit"],
-    .cadastro-bebida button[type="submit"] {
-        width: 100%;
-        text-align: center;
     }
 }

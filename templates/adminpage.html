@@ -3,94 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <title>PAINEL DO ADMINISTRADOR</title>
-    <link rel="stylesheet" href="../static/css/adminpage.css">
+    <link rel="stylesheet" href="/static/css/adminpage.css">
 </head>
 <body>
     <div class="topo">
         <h1>PAINEL DO ADMINISTRADOR</h1>
         <p>Gerenciamento de Usuários e Cardápio | Receitas Love</p>
     </div>
-    <div class="menu">
 
+    <div class="menu">
         <div class="botao">
             <a href="/">Home</a>
         </div>
-
         <div class="botao">
             <a href="/usuario/logout">Logout</a>
         </div>
-
-
         <div class="botao">
-            <a href="/admin/listarremoverusers">Remover Usuarios</a>
+            <button onclick="abrirmodal()">Remover Users</button>
         </div>
-
     </div>
+
+    <div id="meuModal" class="modal-overlay">
+        <div class="modal-conteudo">
+            <span id="btnFechar" class="fechar" onclick="fechar()">&times;</span>
+            <h2>Acesso Restrito</h2>
+            {% for u in usuarios %}
+                <div class="item-remover">
+                    <span>Nome: {{u.nome}} | Login: {{u.login}}</span>
+                    <a href="/admin/removerusers/{{u.login}}" class="btn-excluir">Excluir</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="/static/js/modaljs.js"></script>
 
     <div class="conteudo">
 
         <div class="usuarios">
-        <h2>Clientes Cadastrados</h2>
-        {%if usuarios%}
-            {% for usuario in usuarios %}
-                <p>Nome do Usuário: {{usuario.nome}} | Login do Usuário: {{usuario.login}}</p>
-            {% endfor %}
-        {% endif %}
-
+            <h2>Clientes Cadastrados</h2>
+            {% if usuarios %}
+                {% for usuario in usuarios %}
+                    <p>Nome do Usuário: {{usuario.nome}} | Login do Usuário: {{usuario.login}}</p>
+                {% endfor %}
+            {% endif %}
         </div>
 
-        <br><br>
-
         <div class="comidas">
-
             <h2>Comidas Cadastradas</h2>
             {% for comida in comidas %}
                 <p>{{comida}}</p>
             {% endfor %}
-
         </div>
 
-        <br><br>
-
         <div class="bebidas">
-
             <h2>Bebidas Cadastradas</h2>
             {% for bebida in bebidas %}
                 <p>{{bebida}}</p>
             {% endfor %}
-
         </div>
-
-        <br><br>
 
         <div class="cadastro-comida">
-
             <h2>Adicionar Nova Comida</h2>
-
             <form action="/admin/cadastrarcomida" method="post">
                 <label>Nome da comida:</label>
-                <br>
                 <input type="text" name="nome">
-                <br><br>
-                <button type="submit">
-                    Adicionar
-                </button>
+                <button type="submit">Adicionar</button>
             </form>
         </div>
+
         <div class="cadastro-bebida">
-
             <h2>Adicionar Nova Bebida</h2>
-
             <form action="/admin/cadastrarbebida" method="post">
                 <label>Nome da Bebida:</label>
-                <br>
                 <input type="text" name="nome">
-                <br><br>
-                <button type="submit">
-                    Adicionar
-                </button>
+                <button type="submit">Adicionar</button>
             </form>
         </div>
+
     </div>
 </body>
 </html>
